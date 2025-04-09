@@ -101,18 +101,20 @@
           /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
           /* PUT ANY CHANGES TO THE JAVASCRIPT HERE  */
-     const imageData = ctx1.getImageData(0, 0, 600, 500);
+ // Get image data from the first canvas
+const imageData = ctx1.getImageData(0, 0, 600, 500);
 const data = imageData.data;
 
+// Loop through pixels and zero out red and green
 for (let i = 0; i < data.length; i += 4) {
-  data[i] = 0;     // Remove Red
-  data[i + 1] = 0; // Remove Green
+  data[i] = 0;     // Red
+  data[i + 1] = 0; // Green
   // Blue stays unchanged
-  // Alpha remains unchanged
 }
 
-ctx2.putImageData(imageData, 0, 0);     
-          
+// Draw modified data to second canvas
+ctx2.putImageData(imageData, 0, 0);
+
           
         } // end of img.onload
         
