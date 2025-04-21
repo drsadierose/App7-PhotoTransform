@@ -100,7 +100,13 @@
           /*  +++++++++++++++ BEGIN IMAGE PROCESSING +++++++++++++++ */
           /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
+         var canvas1 = document.getElementById('inCanvas');
+         var canvas2 = document.getElementById('outCanvas');
+
+         
           /* PUT ANY CHANGES TO THE JAVASCRIPT HERE  */
+
+         
    const imageData = contextOriginal.getImageData(0, 0, 600, 500);
         const data = imageData.data;
         const blueOnlyData = new Uint8ClampedArray(data.length);
