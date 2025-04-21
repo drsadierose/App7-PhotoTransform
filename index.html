@@ -154,29 +154,29 @@ canvas {
 	
  var canvas2 = document.getElementById("canvas2");
     var ctx2 = canvas2.getContext("2d");
-      context2.putImageData(imageData, 0, 0);//This code inserts the image with only blue pixels//
-          
-          
-        } 
-        
-        img.src = reader.result;
-      } 
-      
-      reader.readAsDataURL(file);
-    } 
-    else
-    {
-      
-      messageDisplayArea.innerHTML = "File not supported!"
-    } 
-  }); 
- } 
-	
-    fileInput.onchange = function() {
-      var file = fileInput.files[0];
-      var reader = new FileReader();
 
+	
+      var fileInput = document.getElementById("fileInput");
+    var canvas1 = document.getElementById("canvas1");
+    var canvas2 = document.getElementById("canvas2");
+    var ctx1 = canvas1.getContext("2d");
+    var ctx2 = canvas2.getContext("2d");
 	 
+fileInput.onchange = function() {
+      var file = fileInput.files[0];
+      if (!file || !file.type.match("image.*")) return; // check if file is an image
+
+      var reader = new FileReader(); // create a reader to load the file
+      reader.onload = function(e) {
+        var img = new Image(); // create image element
+        img.onload = function() {
+		
+          // Draw image on first canvas
+          ctx1.drawImage(img, 0, 0, canvas1.width, canvas1.height);
+
+          //  Get image data from canvas1
+          var imageData = ctx1.getImageData(0, 0, canvas1.width, canvas1.height);
+          var data = imageData.data;
 
    const imageData = contextOriginal.getImageData(0, 0, 600, 500);
         const data = imageData.data;
@@ -202,19 +202,13 @@ canvas {
             messageDisplayArea.innerHTML = "You picked an image! Click a tube to analyze its color.";
             var img = new Image();
 
-            img.onload = function () {
-              uploadedImage = img;
-              drawImageIOSFix(context, img, 0, 0, img.naturalWidth, img.naturalHeight, 0, 0, canvas.width, canvas.height);
-            };
-            img.src = reader.result;
-          };
-
-          reader.readAsDataURL(file);
-        } else {
-          messageDisplayArea.innerHTML = "File not supported!";
-        }
-      });
-    };	
+                    // Put modified image on second canvas
+          ctx2.putImageData(imageData, 0, 0);
+        };
+        img.src = e.target.result; // load the image data
+      };
+      reader.readAsDataURL(file); // read file as data URL
+    };
 
     </script>
  </head>
