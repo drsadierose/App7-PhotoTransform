@@ -100,13 +100,62 @@
           /*  +++++++++++++++ BEGIN IMAGE PROCESSING +++++++++++++++ */
           /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
-         var canvas1 = document.getElementById('inCanvas');
+
+         
+<script>
+var docMod = document.lastModified; // loads last modified time stamp into docMod variable
+alert("This file last modified " + docMod); // generates alert box with time stamp. If annoying, comment out this entire line.
+console.log("This file last modified " + docMod); // generates message in javaScript console (found in developers tools) with time stamp. 
+</script>
+
+
+
+<style>	
+.body {
+     margin: 0em;
+}
+.page {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: -100vw;
+    overflow-y: auto;
+    z-index: 0;
+    background-color: hsl(0,0%,100%);
+}
+  .page:target {
+    left: 0vw;
+    z-index: 1;
+}
+canvas {
+    max-height: 90%;
+    max-width: 90%;
+}
+	
+</style>
+
+<body>
+<div id="header" class="w3-container w3-flat-carrot">
+	<h1>App7</h1>
+
+
+ <div id="content" class="w3-container">
+	<canvas id="c" width="300" height="300" style="border:1px solid #000000;">
+
+  
+	<!-- creating canvas with border -->	
+ var canvas1 = document.getElementById('inCanvas');
          var canvas2 = document.getElementById('outCanvas');
 
+     
+
+         
+        
          
           /* PUT ANY CHANGES TO THE JAVASCRIPT HERE  */
 
-         
+
    const imageData = contextOriginal.getImageData(0, 0, 600, 500);
         const data = imageData.data;
         const blueOnlyData = new Uint8ClampedArray(data.length);
