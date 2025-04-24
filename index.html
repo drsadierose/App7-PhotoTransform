@@ -161,17 +161,11 @@ canvas {
          
        
 <script>
- var fileInput = document.getElementById("fileInput");
-    var canvas1 = document.getElementById("canvas1");
-    var ctx1 = canvas1.getContext("2d");
-	
- var canvas2 = document.getElementById("canvas2");
-    var ctx2 = canvas2.getContext("2d");
 
 	
       var fileInput = document.getElementById("fileInput");
-    var canvas1 = document.getElementById("canvas1");
-    var canvas2 = document.getElementById("canvas2");
+    var canvas1 = document.getElementById("inCanvas");
+    var canvas2 = document.getElementById("outCanvas");
     var ctx1 = canvas1.getContext("2d");
     var ctx2 = canvas2.getContext("2d");
 	 
@@ -209,12 +203,7 @@ fileInput.onchange = function() {
         var file = fileInput.files[0];
         var imageType = /image.*/;
 
-        if (file.type.match(imageType)) {
-          var reader = new FileReader();
-          reader.onload = function (e) {
-            messageDisplayArea.innerHTML = "You picked an image! Click a tube to analyze its color.";
-            var img = new Image();
-
+      
                     // Put modified image on second canvas
           ctx2.putImageData(imageData, 0, 0);
         };
