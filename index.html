@@ -154,26 +154,6 @@ canvas {
 
 	</style>
          
-       
-
-<canvas id="inCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
-      <script> /*initiates the cavas and puts the text on the canvas "inCanvas" */
-        var canvas = document.getElementById('inCanvas');
-        var context = canvas.getContext("2d");
-    
-      </script>
-        
-      <canvas id="Outcanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
-      <script> /*This script initiates canvas 2 and puts the test on the canvas 'outCanvas' */
-        var canvas2 = document.getElementById('canvas2'); 
-        var canvasContext2 = canvas2.getContext("2d");
-       
-	
-      var fileInput = document.getElementById("fileInput");
-    var canvas1 = document.getElementById("inCanvas");
-    var canvas2 = document.getElementById("outCanvas");
-    var ctx1 = canvas1.getContext("2d");
-    var ctx2 = canvas2.getContext("2d");
 	 
 fileInput.onchange = function() {
       var file = fileInput.files[0];
