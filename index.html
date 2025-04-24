@@ -229,12 +229,25 @@ fileInput.onchange = function() {
 <body>
 <div id="header" class="w3-container w3-flat-carrot">
 	<h1>App7</h1>
+div data-role="page">
+    <div data-role="header">
+    <h1>Colors</h1></div><!-- /header -->
+    <div data-role="content">	
+      <h2>Push button to take picture.</h2>
+      <div>
+        Press orange button to create or choose image file:
+        <input type="file" id="fileInput" STYLE="background-color: #FF6600;">
+      </div>
+      <div id="messageDisplayArea"></div>
+      
+      <canvas id="inCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
+      <script> /* initiates the cavas and puts the text on the canvas "inCanvas" */
+        var canvas = document.getElementById('inCanvas');
+        var context = canvas.getContext("2d");
+        context.font = '20pt Calibri';
+        context.fillStyle = "black";
+        context.fillText("Original image will go here", 10, 20);
 
-
- <div id="content" class="w3-container">
-	<canvas id="inCanvas" width="300" height="300" style="border:1px solid #000000;">
-		
-</body>
 
   <!--Closing script section-->
 
