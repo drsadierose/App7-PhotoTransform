@@ -101,23 +101,21 @@ Cteate a place to imput a picture and two canvases. On the first canvas(inCanvas
 		   /* PUT ANY CHANGES TO THE JAVASCRIPT HERE  */
 
 
- var canvas1 = document.getElementById('inCanvas');
-	 var context1 = canvas1.getContext("2d");
-	<canvas id="canvas1" width="300" height="300" style="border:1px solid black"></canvas>
-	
- var canvas2 = document.getElementById('outCanvas');
-	 var context2 = canvas2.getContext("2d");
-	  <canvas id="canvas2" width="300" height="300" style="border:1px solid black"></canvas>
-	  const imageData = context.getImageData(0, 0, 600, 500);//copies the pixel data onto the imageData object//
-          const data = imageData.data;
+var inCanvas = document.getElementById('inCanvas');
+var outCanvas = document.getElementById('outCanvas');
+var contextIn = inCanvas.getContext("2d");
+var contextOut = outCanvas.getContext("2d");
+		
+	var imageData = contextIn.getImageData(0, 0, inCanvas.width, inCanvas.height);
+var data = imageData.data;
+		
             for (let i = 0; i < data.length; i += 4) {
                 data[i] = 0; //sets the red pixels to 0//     
                 data[i + 1] = 0; //sets the green pixels to 0//    
 
 	    }	    
 
-context2.putImageData(imageData, 0, 0);//This code inserts the image with only blue pixels//
-
+contextOut.putImageData(imageData, 0, 0);
 
 
 		    
