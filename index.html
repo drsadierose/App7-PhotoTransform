@@ -134,17 +134,17 @@ Cteate a place to imput a picture and two canvases. On the first canvas(inCanvas
  <body>
   <div data-role="page">
     <div data-role="header">
-    <h1>Primary Colors</h1></div><!-- /header -->
+    <h1>Photo transformer!</h1></div><!-- /header -->
     <div data-role="content">	
-      <h2>Push button to take picture.</h2>
+      <h2>Input a picture to filter only the blue pixels</h2>
       <div>
-        Press orange button to create or choose image file:
+        Press  button to choose a file:
         <input type="file" id="fileInput" STYLE="background-color: #FF6600;">
       </div>
       <div id="messageDisplayArea"></div>
       
       <canvas id="myCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
-      <script> /* This script initiates the cavas and puts the text on the canvas "myCanvas" */
+      <script> /*  initiates the cavas and puts the text on the canvas "myCanvas" */
         var canvas = document.getElementById('myCanvas');
         var context = canvas.getContext("2d");
      
