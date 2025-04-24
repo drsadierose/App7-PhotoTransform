@@ -24,8 +24,7 @@
   http://stackoverflow.com/questions/11929099/html5-canvas-drawimage-ratio-bug-ios
   
   Brief Description of Goal of Code:
-  blah, blah, blah,
- 
+Cteate a place to imput a picture and two canvases. On the first canvas(inCanvas) the original picture will display. On the second canvas(outCanvas), only the blue pixels will display
   Known Issues:
   blah, blah, blah, blah
 -->
@@ -162,6 +161,18 @@ canvas {
        
 <script>
 
+<canvas id="inCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
+      <script> /*initiates the cavas and puts the text on the canvas "inCanvas" */
+        var canvas = document.getElementById('inCanvas');
+        var context = canvas.getContext("2d");
+    
+      </script>
+        
+      <canvas id="Outcanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
+      <script> /*This script initiates canvas 2 and puts the test on the canvas 'outCanvas' */
+        var canvas2 = document.getElementById('canvas2'); 
+        var canvasContext2 = canvas2.getContext("2d");
+       
 	
       var fileInput = document.getElementById("fileInput");
     var canvas1 = document.getElementById("inCanvas");
