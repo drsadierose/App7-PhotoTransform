@@ -151,54 +151,31 @@ canvas {
 }
 
 
-
 	</style>
          
 	 
-fileInput.onchange = function() {
-      var file = fileInput.files[0];
-      if (!file || !file.type.match("image.*")) return; // check if file is an image
-
-      var reader = new FileReader(); // create a reader to load the file
-      reader.onload = function(e) {
-        var img = new Image(); // create image element
-        img.onload = function() {
-		
-          // Draw image on first canvas
-          ctx1.drawImage(img, 0, 0, canvas1.width, canvas1.height);
-
-          //  Get image data from canvas1
-          var imageData = ctx1.getImageData(0, 0, canvas1.width, canvas1.height);
-          var data = imageData.data;
-
-   const imageData = contextOriginal.getImageData(0, 0, 600, 500);
-        const data = imageData.data;
-        const blueOnlyData = new Uint8ClampedArray(data.length);
-
-        for (let i = 0; i < data.length; i += 4) {
-          blueOnlyData[i] = 0;         // Red
-          blueOnlyData[i + 1] = 0;     // Green
-          blueOnlyData[i + 2] = data[i + 2]; // Blue
-          blueOnlyData[i + 3] = data[i + 3]; // Alpha
-        }
-
-        const newImageData = new ImageData(blueOnlyData, imageData.width, imageData.height);
-        contextBlue.putImageData(newImageData, 0, 0);
-
-	     fileInput.addEventListener('change', function () {
-        var file = fileInput.files[0];
-        var imageType = /image.*/;
-
+<body>
+  <div data-role="page">
+    <div data-role="header">
+    <h1>Primary Colors</h1></div><!-- /header -->
+    <div data-role="content">	
+      <div>
+        Press orange button to create or choose image file:
+        <input type="file" id="fileInput" STYLE="background-color: #FF6600;">
+      </div>
+      <div id="messageDisplayArea"></div>
       
-                    // Put modified image on second canvas
-          ctx2.putImageData(imageData, 0, 0);
-        };
-        img.src = e.target.result; // load the image data
-      };
-      reader.readAsDataURL(file); // read file as data URL
-    };
-
-    </script>
+      <canvas id="inCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
+      <script> 
+        var inCanvas = document.getElementById('inCanvas');
+        var context = canvas.getContext("2d");
+      </script>
+        
+      <canvas id="outCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
+      <script> 
+        var canvas2 = document.getElementById('outCanvas'); 
+        var outCanvasContext = outCanvas.getContext("2d");
+       
  </head>
 	
 <body>
